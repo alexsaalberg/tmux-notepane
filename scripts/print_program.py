@@ -43,5 +43,8 @@ active_pane_id = get_id_from_pane(active_pane)
 active_pane_pid = get_pid_from_id(session, active_pane_id)
 active_program_name = get_program_from_pid(active_pane_pid)
 
-active_pane.split_window(vertical=False)
-print(active_pane_pid + ':' + active_program_name)
+note_pane = active_pane.split_window(vertical=False)
+note_dir = "~/.note/"
+note_pane.send_keys("tldr "+active_program_name+" | less -r")
+note_pane.send_keys("i", enter=False)
+#print(active_pane_pid + ':' + active_program_name)
