@@ -1,3 +1,4 @@
+import sys
 import libtmux
 from subprocess import check_output, CalledProcessError
 
@@ -29,10 +30,13 @@ def get_leaf_pid(root_pid):
 	#pane_index = pane_id_list.index(pane_id)
 	#return get_leaf_pid(pane_pid_list[pane_index])
 
-
 def get_pid(pane):
 	pane_pid = session.cmd('display-message', '-p', '#{pane_pid}').stdout[0]
 	return get_leaf_pid(pane_pid)
+
+for i, arg in enumerate(sys.argv):
+	print("Arg #"+str(i)+": "+arg)
+
 
 server = libtmux.Server()
 
