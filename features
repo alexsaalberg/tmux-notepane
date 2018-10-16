@@ -1,9 +1,0 @@
-Monitor_Panes
-
-Hooks:
-	When program on specific pane changes
-	What active program changes
-	When active pane changes
-Sticky:
-	Stick pane to another
-
