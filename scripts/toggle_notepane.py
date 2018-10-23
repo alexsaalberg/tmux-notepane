@@ -136,8 +136,17 @@ def get_clean_active_program(pane):
 	mainpane_prog = get_clean_program(get_program_from_pid(leaf_pid))
 	return mainpane_prog
 
+def make_note_dir():
+	try:
+		dir_path = os.path.expanduser('~/.note')
+		os.mkdir(dir_path)
+	except:
+		log("~/.note already exists")
+		#do nothing
+
 def launch_note_program(notepane, mainpane):
 	mainpane_prog = get_clean_active_program(mainpane)
+	make_note_dir()
 	notepane.send_keys("vim ~/.note/"+mainpane_prog+".note")
 
 def launch_man(notepane, mainpane):
