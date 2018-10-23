@@ -27,19 +27,15 @@ def unset_tmux_user_option(option):
 	unset_tmux_option("@" + option_prefix + option)
 
 def get_tmux_option(option):
-	try:
-		result = check_output(["tmux", "show-option", "-q", "-g", option])
-		if len(result) == 0: #option not set, return default of ''
-			return ''
-		tokens = result.decode()[:-1].split(' ') #remove \n, split into option and value
-		#tmux show-option @asdf will return (if value is 1)
-		#@asdf "1" so we need to remove ""
-		value = tokens[1][1:-1]
-		log("get_tmux_option("+option+"): "+value)
-		return value #remove ""
-	except CalledProcessError: #option does not exist, return default of ""
-		log("get_tmux_option("+option+"): CalledProcessError")
-		return ""
+	result = check_output(["tmux", "show-option", "-q", "-g", option])
+	if len(result) == 0: #option not set, return default of ''
+		return ''
+	tokens = result.decode()[:-1].split(' ') #remove \n, split into option and value
+	#tmux show-option @asdf will return (if value is 1)
+	#@asdf "1" so we need to remove ""
+	value = tokens[1][1:-1] #remove ""
+	log("get_tmux_option("+option+"): "+value)
+	return value 
 
 def get_tmux_user_option(option):
 	return get_tmux_option("@" + option_prefix + option)
@@ -159,7 +155,10 @@ def get_notepane_from_mainpane(pane):
 	return get_pane_from_id(get_tmux_user_option(get_id_from_pane(pane)+"isMainpaneOf"))
 
 def get_mainpane_from_notepane(pane):
-	return get_pane_from_id(get_tmux_user_option(get_id_from_pane(pane)+"isNotepaneOf"))
+	try:
+		return get_pane_from_id(get_tmux_user_option(get_id_from_pane(pane)+"isNotepaneOf"))
+	except:
+		return pane
 
 def remove_notepane(notepane):
 	notepane.cmd('kill-pane')
