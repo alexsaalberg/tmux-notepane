@@ -12,7 +12,6 @@ def log(s):
 	if debug:
 		print(s)
 
-
 #tmux options helper function
 def set_tmux_option(option, value):
 	call(["tmux", "set-option", "-g", option, value])
@@ -31,8 +30,7 @@ def get_tmux_option(option):
 	if len(result) == 0: #option not set, return default of ''
 		return ''
 	tokens = result.decode()[:-1].split(' ') #remove \n, split into option and value
-	#tmux show-option @asdf will return (if value is 1)
-	#@asdf "1" so we need to remove ""
+	#'tmux show-option @asdf' will return (if value is 1) '@asdf "1"'
 	value = tokens[1][1:-1] #remove ""
 	log("get_tmux_option("+option+"): "+value)
 	return value 
@@ -161,6 +159,8 @@ def get_mainpane_from_notepane(pane):
 		return pane
 
 def remove_notepane(notepane):
+	notepane.send_keys(str(chr(27)), enter=False) #send esc
+	notepane.send_keys(":w") #save
 	notepane.cmd('kill-pane')
 
 def toggle_notepane(pane):
