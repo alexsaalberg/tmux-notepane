@@ -1,14 +1,22 @@
 # Tmux Notepane
 
+![screenshot](/screen.png)
+
 `tmux-notepane` opens `~/.note/<CURRENT_PROGRAM>.note` in vim when the user hits a binding. 
 
-It's written with the use of [libtmux](https://github.com/tmux-python/libtmux), so Python is a requirement for use.
+### Description
+
+It's meant to be user for quick personal notetaking of often-forgotten shortcuts/commands/options. It can be though of as a 'personal manpage' of sorts.
+
+Tmux-notepane was written with the use of [libtmux](https://github.com/tmux-python/libtmux), so Python is a requirement.
+
+It has only been tested on OSX. Information about use/bugs on other platforms is appreciated!
 
 ### Requirements
 
 - `tmux 1.9` or higher
 
-- Python3 (2.7 should work, but the shell-script calls `python3 toggle_notepane.py`)
+- **Python3** (2.7 should work, but the shell-script calls `python3 toggle_notepane.py`)
 
 - [libtmux](https://github.com/tmux-python/libtmux)
 
@@ -41,3 +49,10 @@ Reload TMUX environment:
     $ tmux source-file ~/.tmux.conf
 
 You should now be able to use the plugin.
+
+### Other Tmux Stuff
+
+- [tmux-sidebar](tmux-plugins/tmux-sidebar) 
+    - Inspiration for tmux-notepane
+    - Also provided reference for how to create a plugin for Tmux (including using variables to save state)
+
