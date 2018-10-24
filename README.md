@@ -32,7 +32,7 @@ It has only been tested on OSX. Information about use/bugs on other platforms is
 
 - `tmux 1.9` or higher
 
-- **Python3** (2.7 should work, but the shell-script calls `python3 toggle_notepane.py`)
+- Python3 (2.7 might work, but is untested)
 
 - [libtmux](https://github.com/tmux-python/libtmux)
 
