@@ -12,6 +12,22 @@ Tmux-notepane was written with the use of [libtmux](https://github.com/tmux-pyth
 
 It has only been tested on OSX. Information about use/bugs on other platforms is appreciated!
 
+### Key Bindings
+
+- `Prefix + N` opens/closes a notepane
+
+### Use
+
+1. Hit the binding to open a document specific to the current program (bash, vim, etc.)
+
+    - By default the path to this document is `~/.note/<PROGRAM>.note`
+    
+2. Write whatever you want to remember or have reference to in the document
+
+3. Hit the binding again to close the document. (You don't have to worry about saving, that will be done automatically)
+
+4. Open the document again later when you need reference to whatever information you just recorded
+
 ### Requirements
 
 - `tmux 1.9` or higher
@@ -19,10 +35,6 @@ It has only been tested on OSX. Information about use/bugs on other platforms is
 - **Python3** (2.7 should work, but the shell-script calls `python3 toggle_notepane.py`)
 
 - [libtmux](https://github.com/tmux-python/libtmux)
-
-### Key Bindings
-
-- `Prefix + N` opens/closes a notepane
 
 ### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
