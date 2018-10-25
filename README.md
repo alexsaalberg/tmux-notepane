@@ -4,6 +4,8 @@
 
 `tmux-notepane` opens `~/.note/<CURRENT_PROGRAM>.note` in vim when the user hits a binding. 
 
+*Important: Unlike most tmux plugins, tmux-notepane requires python and libtmux (see installation instructions below)*
+
 ### Description
 
 It's meant to be user for quick personal notetaking of often-forgotten shortcuts/commands/options. It can be though of as a 'personal manpage' of sorts.
