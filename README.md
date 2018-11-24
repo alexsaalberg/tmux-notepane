@@ -74,7 +74,7 @@ You should now be able to use the plugin.
 
 ### Other Tmux Stuff
 
-- [tmux-sidebar](tmux-plugins/tmux-sidebar) 
+- [tmux-sidebar](https://www.github.com/tmux-plugins/tmux-sidebar) 
     - Inspiration for tmux-notepane
     - Also provided reference for how to create a plugin for Tmux (including using variables to save state)
 
